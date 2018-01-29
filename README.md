@@ -1,1 +1,1 @@
-# base-java
+# base-wildfly
