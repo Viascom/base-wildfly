@@ -2,7 +2,7 @@ FROM viascom/base-java:8
 
 LABEL maintainer="technical@viascom.ch"
 
-ENV WILDFLY_VERSION 11.0.0.Final
+ENV WILDFLY_VERSION 10.1.0.Final
 ENV WILDFLY_HOME /opt/wildfly
 
 RUN apk add --no-cache curl tar
@@ -18,6 +18,6 @@ RUN mkdir /temp && \
 EXPOSE 8080 9990
 
 # Add management user (username: admin, passwd: admin)
-#RUN $WILDFLY_HOME/bin/add-user.sh admin admin --silent
+RUN $WILDFLY_HOME/bin/add-user.sh admin admin --silent
 
 CMD ["/opt/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
