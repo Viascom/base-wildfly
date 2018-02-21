@@ -2,7 +2,7 @@ FROM viascom/base-java:8
 
 LABEL maintainer="technical@viascom.ch"
 
-ENV WILDFLY_VERSION 10.1.0.Final
+ENV WILDFLY_VERSION 11.0.0.Final
 ENV WILDFLY_HOME /opt/wildfly
 
 RUN apk add --no-cache curl tar
