@@ -5,7 +5,7 @@ LABEL maintainer="technical@viascom.ch"
 ENV WILDFLY_VERSION 11.0.0.Final
 ENV WILDFLY_HOME /opt/wildfly
 
-RUN apk add --no-cache curl tar bash
+RUN apk add --no-cache curl tar
 
 # Installs WILDFLY
 RUN mkdir /temp && \
