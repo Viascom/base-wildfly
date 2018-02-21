@@ -5,16 +5,14 @@ LABEL maintainer="technical@viascom.ch"
 ENV WILDFLY_VERSION 11.0.0.Final
 ENV WILDFLY_HOME /opt/wildfly
 
-RUN apk add --update curl tar
+RUN apk add --no-cache curl tar bash
 
 # Installs WILDFLY
-WORKDIR /tmp
-RUN curl -O -sSL http://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz
-RUN tar -xzf wildfly-$WILDFLY_VERSION.tar.gz
-RUN rm wildfly-$WILDFLY_VERSION.tar.gz
-RUN mv wildfly-$WILDFLY_VERSION $WILDFLY_HOME
-
-RUN apk del curl tar
+RUN mkdir /temp && \
+    curl -O -sSL http://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz && \
+    tar -xzf wildfly-$WILDFLY_VERSION.tar.gz && \
+    mv wildfly-$WILDFLY_VERSION $WILDFLY_HOME && \
+    rm -rf /temp
 
 # Expose the ports we're interested in
 EXPOSE 8080 9990
