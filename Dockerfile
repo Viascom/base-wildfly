@@ -2,7 +2,7 @@ FROM viascom/base-java:10
 
 LABEL maintainer="technical@viascom.ch"
 
-ENV WILDFLY_VERSION 11.0.0.Final
+ENV WILDFLY_VERSION 12.0.0.Final
 ENV WILDFLY_HOME /opt/wildfly
 
 # Default username and password for the management user
